@@ -2,8 +2,8 @@ package restaurant;
 
 import java.util.ArrayList;
 
-import People.Chef;
-import People.Visitor;
+import people.Chef;
+import people.Visitor;
 
 public class Restaurant {
 	private String name;
