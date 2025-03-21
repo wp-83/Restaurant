@@ -1,6 +1,8 @@
 package restaurant;
 
 import java.util.ArrayList;
+import java.text.NumberFormat; 
+import java.util.Locale; 
 
 import people.Chef;
 import people.Visitor;
@@ -36,7 +38,7 @@ public class Restaurant {
 			System.out.println("- Menu type: " + m.getType());
 			
 			for (Food f : m.getFoods()) {
-				System.out.println("   - " + f.getName() + " (" + f.getPrice() + ")");
+				System.out.println("   - " + f.getName() + " (" + formatIDR(f.getPrice()) + ")");
 			}
 		}
 		
@@ -70,8 +72,13 @@ public class Restaurant {
 	}
 	
 	public void showTotalIncome() {
-		System.out.println("Net income of '" + this.name + "' restaurant: " + this.netIncome);
+		System.out.println("Net income of '" + this.name + "' restaurant: " + Restaurant.formatIDR(this.netIncome));
 	}
 	
 
+	 // Helper method to format currency in IDR 
+    public static String formatIDR(int amount) { 
+        NumberFormat formatter = NumberFormat.getCurrencyInstance(new Locale("id", "ID")); 
+        return formatter.format(amount); 
+    }
 }
